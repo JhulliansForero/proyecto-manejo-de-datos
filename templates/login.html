@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBite — Iniciar sesión</title>
+  <link rel="stylesheet" href="/static/login.css">
+</head>
+<body>
+
+  <div class="cuadro_blanco">
+
+    <div class="nombre_app">SmartBite</div>
+    <p class="texto_gris">Sistema de análisis de restaurante</p>
+
+    <h2 class="titulo_seccion">Iniciar sesión</h2>
+
+    <form method="POST" action="/login">
+      <div class="cajita">
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" placeholder="tucorreo@email.com" required>
+      </div>
+      <div class="cajita">
+        <label for="password">Contraseña</label>
+        <input type="password" id="password" name="password" placeholder="••••••••" required>
+      </div>
+      <button type="submit" class="boton_naranja">Entrar</button>
+    </form>
+
+    <hr class="linea_divisora">
+    <p class="texto_link">¿No tienes cuenta? <a href="/registro">Crear cuenta</a></p>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: white;
+  font-family: Arial, sans-serif;
+  padding: 40px;
+}
+
+.saludo {
+  font-size: 24px;
+  color: #1C1917;
+}
