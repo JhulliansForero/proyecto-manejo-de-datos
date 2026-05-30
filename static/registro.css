@@ -80,10 +80,6 @@ body {
   margin-top: 5px;
 }
 
-.boton_naranja:hover {
-  background-color: #EA6C10;
-}
-
 .linea_divisora {
   border: none;
   border-top: 1px solid #D6D3D1;

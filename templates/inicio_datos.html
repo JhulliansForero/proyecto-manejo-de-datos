@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SmartBite — Dashboard</title>
+  <link rel="stylesheet" href="/static/inicio_datos.css">
+</head>
+<body>
+
+  <div class="barra_lado">
+
+    <div class="logo_arriba">
+      <span class="cuadrito_logo"></span>
+      <span class="nombre_logo">SmartBite</span>
+    </div>
+
+    <p class="titulo_menu">ANÁLISIS</p>
+
+    <div class="lista_menu">
+      <p class="opcion opcion_activa">Dashboard</p>
+      <p class="opcion">Cargar datos</p>
+      <p class="opcion">Combos</p>
+      <p class="opcion">Sucursales</p>
+      <p class="opcion">Tiempos</p>
+      <p class="opcion">Empleados</p>
+    </div>
+
+    <form method="POST" action="/logout" class="pie_barra">
+      <button type="submit" class="boton_salir">Cerrar sesión</button>
+    </form>
+
+  </div>
+
+  <div class="zona_principal">
+
+    <div class="fila_titulo">
+      <h1 class="titulo_pagina">Dashboard</h1>
+      <p class="subtitulo">Resumen general · {{ total_pedidos }} pedidos analizados</p>
+    </div>
+
+    <div class="barra_filtros">
+      <div class="filtro">
+        <span class="filtro_nombre">SUCURSAL</span>
+        <span class="filtro_valor">Todas</span>
+      </div>
+      <div class="filtro">
+        <span class="filtro_nombre">RANGO</span>
+        <span class="filtro_valor">{{ rango }}</span>
+      </div>
+      <div class="filtro">
+        <span class="filtro_nombre">CATEGORÍA</span>
+        <span class="filtro_valor">Todas</span>
+      </div>
+      <button class="boton_limpiar">Limpiar</button>
+      <button class="boton_exportar">Exportar</button>
+    </div>
+
+    <div class="fila_tarjetas">
+      <div class="tarjeta_dato">
+        <p class="texto_dato">TOTAL PEDIDOS</p>
+        <p class="numero_dato">{{ total_pedidos }}</p>
+      </div>
+      <div class="tarjeta_dato">
+        <p class="texto_dato">INGRESOS TOTALES</p>
+        <p class="numero_dato">{{ ingresos }}</p>
+      </div>
+      <div class="tarjeta_dato">
+        <p class="texto_dato">CALIFICACIÓN PROM.</p>
+        <p class="numero_dato">{{ calificacion }}</p>
+      </div>
+      <div class="tarjeta_dato">
+        <p class="texto_dato">TIEMPO PROM. PREP.</p>
+        <p class="numero_dato">{{ tiempo }}</p>
+      </div>
+    </div>
+
+    <div class="cuadricula">
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Combos más vendidos</p>
+        <div class="grafico_barras">
+          {% for c in combos %}
+          <div class="columna">
+            <div class="{{ c.clase }}" style="height: {{ c.alto }}%"></div>
+            <p class="texto_columna">{{ c.nombre }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Métodos de pago</p>
+        <div class="zona_dona">
+          <div class="dona" style="background: {{ dona_estilo }}"></div>
+          <div class="lista_dona">
+            <p class="renglon_dona"><span class="punto_naranja"></span> App {{ p_app }}%</p>
+            <p class="renglon_dona"><span class="punto_gris"></span> Tarjeta {{ p_tarjeta }}%</p>
+            <p class="renglon_dona"><span class="punto_claro"></span> Efectivo {{ p_efectivo }}%</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Ventas por hora y día</p>
+        <div class="mapa_calor">
+          {% for fila in heatmap %}
+            {% for color in fila.celdas %}
+            <div class="celda" style="background-color: {{ color }}"></div>
+            {% endfor %}
+          {% endfor %}
+        </div>
+      </div>
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Ingresos por mes</p>
+        <div class="grafico_puntos">
+          {% for p in puntos %}
+          <span class="punto" style="left: {{ p.left }}%; bottom: {{ p.bottom }}%"></span>
+          {% endfor %}
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>

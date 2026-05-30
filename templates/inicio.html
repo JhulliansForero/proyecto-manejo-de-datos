@@ -3,12 +3,100 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>SmartBite — Inicio</title>
+  <title>SmartBite — Dashboard</title>
   <link rel="stylesheet" href="/static/inicio.css">
 </head>
 <body>
 
-  <p class="saludo">Bienvenido</p>
+  <div class="barra_lado">
+
+    <div class="logo_arriba">
+      <span class="cuadrito_logo"></span>
+      <span class="nombre_logo">SmartBite</span>
+    </div>
+
+    <p class="titulo_menu">ANÁLISIS</p>
+
+    <div class="lista_menu">
+      <p class="opcion opcion_activa">Dashboard</p>
+      <p class="opcion">Cargar datos</p>
+      <p class="opcion">Combos</p>
+      <p class="opcion">Sucursales</p>
+      <p class="opcion">Tiempos</p>
+      <p class="opcion">Empleados</p>
+    </div>
+
+    <form method="POST" action="/logout" class="pie_barra">
+      <button type="submit" class="boton_salir">Cerrar sesión</button>
+    </form>
+
+  </div>
+
+  <div class="zona_principal">
+
+    <div class="fila_titulo">
+      <h1 class="titulo_pagina">Dashboard</h1>
+      <p class="subtitulo">Carga un archivo CSV para ver el análisis</p>
+    </div>
+
+    <form class="caja_carga" method="POST" action="/cargar" enctype="multipart/form-data">
+      <span class="texto_carga">Selecciona tu archivo de datos (.csv)</span>
+      <input class="input_archivo" type="file" name="archivo" accept=".csv" required>
+      <button class="boton_cargar" type="submit">Cargar datos</button>
+    </form>
+
+    <div class="fila_tarjetas">
+      <div class="tarjeta_dato">
+        <p class="texto_dato">TOTAL PEDIDOS</p>
+        <p class="numero_dato">—</p>
+      </div>
+      <div class="tarjeta_dato">
+        <p class="texto_dato">INGRESOS TOTALES</p>
+        <p class="numero_dato">—</p>
+      </div>
+      <div class="tarjeta_dato">
+        <p class="texto_dato">CALIFICACIÓN PROM.</p>
+        <p class="numero_dato">—</p>
+      </div>
+      <div class="tarjeta_dato">
+        <p class="texto_dato">TIEMPO PROM. PREP.</p>
+        <p class="numero_dato">—</p>
+      </div>
+    </div>
+
+    <div class="cuadricula">
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Combos más vendidos</p>
+        <div class="zona_vacia">
+          <p class="texto_vacio">Sin datos</p>
+        </div>
+      </div>
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Métodos de pago</p>
+        <div class="zona_vacia">
+          <p class="texto_vacio">Sin datos</p>
+        </div>
+      </div>
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Ventas por hora y día</p>
+        <div class="zona_vacia">
+          <p class="texto_vacio">Sin datos</p>
+        </div>
+      </div>
+
+      <div class="tarjeta_grafico">
+        <p class="titulo_grafico">Ingresos por mes</p>
+        <div class="zona_vacia">
+          <p class="texto_vacio">Sin datos</p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 
 </body>
 </html>

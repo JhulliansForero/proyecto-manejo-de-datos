@@ -1,6 +1,12 @@
 # Dataset generado (archivo grande, se genera con el script)
 dataset_restaurante_50k.csv
 
+# CSV que sube el usuario desde el dashboard (se crea al cargar datos)
+datos_cargados.csv
+
+# Base de datos (se crea sola al correr la app)
+*.db
+
 # Python
 __pycache__/
 *.pyc
